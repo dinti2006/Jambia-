@@ -1,0 +1,135 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap');
+
+/* General styles */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('—Pngtree—cartoon little bear doll_5459566.png'), url('—Pngtree—small rose gold foil decoration_7715756.png'); /* Teddy & Rose background */
+    background-size: 80px;
+    background-repeat: repeat;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Envelope & Letter Container */
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+/* Envelope */
+.envelope {
+    width: 320px;
+    height: 220px;
+    position: relative;
+    background: #ff4155;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Envelope top flap */
+.top-flap {
+    position: absolute;
+    width: 100%;
+    height: 60%;
+    background: #ff5e72;
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+    top: -60%;
+    left: 0;
+    transition: 0.5s;
+}
+
+/* Envelope bottom flap */
+.bottom-flap {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background: #ff2a41;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    bottom: 0;
+}
+
+/* Letter (Perfectly Centered) */
+.letter {
+    position: absolute;
+    width: 300px;
+    background: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.8;
+    font-family: 'Dancing Script', cursive;
+    color: #333;
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+}
+
+/* Open animation */
+.open .top-flap {
+    transform: rotateX(180deg);
+}
+
+.open .letter {
+    opacity: 1;
+}
+
+/* Remove envelope after opening */
+.open .envelope {
+    display: none;
+}
+
+/* Floating Hearts Animation */
+.hearts {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.heart {
+    position: absolute;
+    bottom: 0;
+    width: 25px;
+    height: 25px;
+    background: pink;
+    clip-path: polygon(50% 0%, 100% 30%, 80% 100%, 50% 80%, 20% 100%, 0% 30%);
+    opacity: 0.8;
+    animation: float 5s infinite ease-in-out;
+}
+
+@keyframes float {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    50% { transform: translateY(-150px) scale(1.2); opacity: 0.8; }
+    100% { transform: translateY(-300px) scale(1.5); opacity: 0; }
+}
+
+/* Responsive for Mobile */
+@media (max-width: 768px) {
+    .envelope {
+        width: 250px;
+        height: 180px;
+    }
+    .letter {
+        width: 230px;
+        font-size: 16px;
+    }
+}
